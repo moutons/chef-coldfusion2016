@@ -1,0 +1,44 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 3072
+    cpus: 2
+  #synced_folders:
+  #  - ["cfdownload", "/mnt/cfdownload"]
+  network: 
+    - ["forwarded_port", {guest: 80, host: 8080}]
+    - ["forwarded_port", {guest: 8500, host: 8500}]
+#    - ["forwarded_port", {guest: 80, host: 80}]
+#    - ["forwarded_port", {guest: 8500, host: 8500}]
+
+## The forwarded_port port feature lets you connect to ports on the VM guest via
+## localhost on the host.
+## see also: https://docs.vagrantup.com/v2/networking/forwarded_ports.html
+
+#  network:
+#    - ["forwarded_port", {guest: 80, host: 8080}]
+
+provisioner:
+  name: policyfile_zero
+
+## require_chef_omnibus specifies a specific chef version to install. You can
+## also set this to `true` to always use the latest version.
+## see also: https://docs.chef.io/config_yml_kitchen.html
+
+  require_chef_omnibus: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-16.04
+  - name: centos-7.3
+  - name: centos-6.9
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:

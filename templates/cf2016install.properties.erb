@@ -1,0 +1,53 @@
+#Silent properties for ColdFusion 2016
+INSTALLER_UI=SILENT
+#Valid Values are full/trial/developer 
+SILENT_LICENSE_MODE=<%= node['cf2016']['installer']['license_mode'] %>
+SILENT_SERIAL_NUMBER=<%= node['cf2016']['installer']['serial_number'] %>
+#Use when it is upgrade
+SILENT_PREV_SERIAL_NUMBER=<%= node['cf2016']['installer']['prev_serial_number'] %>
+#Valid values are ear/war/standalone
+SILENT_INSTALLER_TYPE=<%= node['cf2016']['installer']['installer_type'] %>
+SILENT_INSTALL_ODBC=<%= node['cf2016']['installer']['install_odbc'] %>
+SILENT_INSTALL_JNBRIDGE=<%= node['cf2016']['installer']['install_jnbridge'] %>
+#Remote administrator component for server remote start/stop
+SILENT_INSTALL_ADMIN=<%= node['cf2016']['installer']['install_admin'] %>
+SILENT_INSTALL_SOLR=<%= node['cf2016']['installer']['install_solr'] %>
+SILENT_INSTALL_PDFG=<%= node['cf2016']['installer']['install_pdfg'] %>
+#For Linux it would be as /opt/coldfusion2016 (Change it as per your path)
+#SILENT_INSTALL_FOLDER=C:\\ColdFusion2016
+SILENT_INSTALL_FOLDER=<%= node['cf2016']['installer']['install_folder'] %>
+#Enable one of Prod(secure/prod)/dev profile. These 3 are mutually exclusive and only one of them can be ture and others are false.
+SILENT_ENABLE_PROD_SECURE_PROFILE=<%= node['cf2016']['installer']['enable_secure_profile'] %>
+SILENT_ENABLE_PROD_DEFAULT_PROFILE=<%= node['cf2016']['installer']['enable_prod_default_profile'] %>
+SILENT_ENABLE_DEV_PROFILE=<%= node['cf2016']['installer']['enable_dev_profile'] %>
+#IP addresses from which Administrator can be accessed.
+SILENT_ADMIN_IP=<%= node['cf2016']['installer']['admin_ip'] %>
+#IP address of the CF installed machine through which PDFG/Solr service would be accessed remotely.
+SILENT_JETTY_IP=jetty_ip
+SILENT_ADMIN_USERNAME=<%= node['cf2016']['installer']['admin_username'] %>
+SILENT_ADMIN_PASSWORD=<%= node['cf2016']['installer']['admin_password'] %>
+SILENT_ENABLE_RDS=<%= node['cf2016']['installer']['enable_rds'] %>
+SILENT_RUNTIME_USER=
+#Provide password when enable RDS is true
+SILENT_RDS_PASSWORD=<%= node['cf2016']['installer']['rds_password'] %>
+#username/password of remote administrator component for server remote start/stop
+SILENT_JETTY_USERNAME=<%= node['cf2016']['installer']['jetty_user'] %>
+SILENT_JETTY_PASSWORD=<%= node['cf2016']['installer']['jetty_password'] %>
+#Context Root for J2ee Installation
+SILENT_CONTEXT_ROOT=<%= node['cf2016']['installer']['j2ee_context_root'] %>
+SILENT_AUTO_ENABLE_UPDATES=<%= node['cf2016']['installer']['enable_auto_updates'] %>
+#For Linux it would be as /opt/coldfusion11 (Change it as per your path)
+SILENT_PREV_CF_MIGR_DIR=<%= node['cf2016']['installer']['prev_cf_migration_dir'] %>
+#Enable/Disable the servlets depending on if they are not used by your application or not.
+#Applicable only if production OR Production+Secure profile is enabled. For Dev profile, all are enabled by default.
+# ENABLE_RDS=<%= node['cf2016']['installer']['enable_rds'] %>
+#  
+# ENABLE_WSRP=<%= node['cf2016']['installer']['enable_wsrp'] %>
+#  
+# ENABLE_JSDEBUG=<%= node['cf2016']['installer']['enable_jsdebug'] %>
+#  
+# ENABLE_CFR=<%= node['cf2016']['installer']['enable_cfr'] %>
+#  
+# ENABLE_CFSWF=<%= node['cf2016']['installer']['enable_cfswf'] %>
+#  
+# ENABLE_CFFORMS=<%= node['cf2016']['installer']['enable_cfforms'] %>

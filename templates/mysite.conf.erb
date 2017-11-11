@@ -1,0 +1,33 @@
+RedirectMatch 404 (?i).*/CFIDE.*
+### review the lockdown guide to determine which of these can be redirected
+# RedirectMatch 404 (?i).*/Application\.cf.*
+# RedirectMatch 404 (?i).*/WEB-INF.*
+# RedirectMatch 404 (?i).*/cfformgateway.*
+# RedirectMatch 404 (?i).*/flex2gateway.*
+# RedirectMatch 404 (?i).*/cfform-internal.*
+# RedirectMatch 404 (?i).*/flex-internal.*
+# RedirectMatch 404 (?i).*/cffileservlet.*
+# RedirectMatch 404 (?i).*/rest/.*
+# RedirectMatch 404 (?i).*/_api_listing/.*
+# RedirectMatch 404 (?i).*/flashservices.*
+# RedirectMatch 404 (?i).*/WSRPProducer.*
+# RedirectMatch 404 (?i).*/JSDebugServlet.*
+# RedirectMatch 404 (?i).*/securityanalyzer.*
+# RedirectMatch 404 (?i).*\.git.*
+# RedirectMatch 404 (?i).*\.svn.*
+# RedirectMatch 404 (?i).*/cf_scripts.*
+
+<VirtualHost *:80>
+  ServerName <%= @project['fqdn'] %>
+  DocumentRoot "/var/www/<%= @project['name'] %>/public_html"
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+  <Directory "/var/www/<%= @project['name'] %>/public_html" >
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>
