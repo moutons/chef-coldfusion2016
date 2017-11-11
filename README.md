@@ -21,7 +21,7 @@ For now, pull down this cookbook to your local machine, copy the coldfusion bina
 Once the node has converged, log in using `kitchen login` to work with the installation
 
 - the coldfusion server should have started when the node converged
-The test kitchen settings forward port 80 and 8500 from the local host to the same ports on the kitchen node
+The test kitchen settings forward port ~80 and~ 8500 from the local host to the same port~s~ on the kitchen node
 - browsing to http://localhost/ gets you to httpd on the kitchen node
 - browsing to http://localhost:8500/ gets you to coldfusion directly on the kitchen node
 - in order to set the system's coldfusion installation up, browse to http://localhost:8500/CFIDE/administrator/index.cfm roughly a minute after starting or restarting the coldfusion process
